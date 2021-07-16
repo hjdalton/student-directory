@@ -12,6 +12,18 @@ students = [
   {name: "Choo Chang", cohort: :november},
   {name: "Cedric Diggory", cohort: :november},
 ]
+def input_students
+  puts "Enter the name of the new student"
+  puts "To finish, hit return twice"
+  students = []
+  name = gets.chomp
+  while !name.empty? do 
+    students << {name: name, cohort: :november}
+    puts "We have registered #{students.count} students"
+    name = gets.chomp
+  end
+  students
+end
 
 def print_header
   puts "The students of Hogwarts School for witchcraft and wizardry"
@@ -28,6 +40,7 @@ def print_footer(names)
   puts "Overall, we have #{names.count} great students"
 end
 
+students = input_students
 print_header
 print(students)
 print_footer(students)
